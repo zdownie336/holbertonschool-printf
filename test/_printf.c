@@ -16,3 +16,4 @@ int _printf(const char *format, ...)
 		case 'c':
 		case 's':
 		case '%':
+	}
