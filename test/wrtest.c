@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	stdwr("test\n");
+	printf("%d\n", (stdwr("test\n")));
 
 	return (0);
 }

@@ -36,6 +36,6 @@ int _strlen(char *s)
 	int l;
 
 	l = _strlen(c);
-	
-	return(write(1, c, l));
+
+	return(write(1, c, l) - 1);
  }
