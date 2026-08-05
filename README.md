@@ -1,1 +1,7 @@
-This is to make the repo have something
+# PrintF Project
+
+## Compile
+ 
+```bash
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
+```
