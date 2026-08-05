@@ -46,3 +46,8 @@ doesn't have to handle percision
 
 don't have to handle length modifiers
 
+
+## Need to knows:
+need to do "/" before printing special characters
+example:
+printing a backslash, have to do "//"
