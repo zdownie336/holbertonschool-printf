@@ -27,7 +27,7 @@ s (strings)
 
 don't have to reproduce buffer handling,
 
-doesn't have to handle flag characters (%d, %p, %i)
+doesn't have to handle flag characters (the character's between the % and the specifier, (d,f,s))
 doesn't have to handle field width
 
 doesn't have to handle percision
