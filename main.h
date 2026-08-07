@@ -2,7 +2,7 @@
 #define _main_H_
 
 int _printf(const char *format, ...);
-int stdwr(char *c);
-int _strlen(char *s);
+int _putchar(char c);
+
 
 #endif /* _main_H_ */
