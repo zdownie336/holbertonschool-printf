@@ -8,7 +8,8 @@
  */
 int main(void)
 {
-	_printf("does this work (%c) a [%s] aa\n", 'Y', "YES");
+	printf("%i",_printf("does this work (%c) a [%s] aa\n", 'Y', "YES"));
+
 
 	return (0);
 }

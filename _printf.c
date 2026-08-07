@@ -15,11 +15,19 @@ int _putchar(char c)
 }
 
 /* gcc wrtest.c _printf.c -Wall -Wextra -Werror -pedantic -std=gnu89 -o a */
+
+/**
+ * _printf - writes given string and arguments to stdout
+ * @format: The strings and variable args to print
+ *
+ * Return: Characters printed exclduing null terminator
+ */
 int _printf(const char *format, ...)
 {
 	va_list arg;
 	unsigned int i;
 	unsigned int ind;
+	unsigned int charp;
 	const char *str;
 	char *temp;
 
@@ -27,7 +35,7 @@ int _printf(const char *format, ...)
 	str = format;
 	i = 0;
 	ind = 0;
-
+	charp = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
@@ -36,14 +44,13 @@ int _printf(const char *format, ...)
 			switch (str[i])
 			{
 			case 'c':
-				_putchar(va_arg(arg, int));
+				charp += _putchar(va_arg(arg, int));
 				break;
-
 			case 's':
 				temp = va_arg(arg, char *);
 				while (temp[ind] != '\0')
 				{
-					_putchar(temp[ind]);
+					charp += _putchar(temp[ind]);
 					ind++;
 				}
 				break;
@@ -51,10 +58,9 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putchar(str[i]);
+			charp += _putchar(str[i]);
 		}
 		i++;
 	}
-
-	return (i);
+	return (charp);
 }
