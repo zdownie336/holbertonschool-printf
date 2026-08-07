@@ -39,3 +39,28 @@ int _strlen(char *s)
 
 	return(write(1, c, l) - 1);
  }
+
+ /**
+ * stdwr - counts length of given string and write it to stdout
+ * @c: char to print
+ *
+ * Return: returns amount of printed bytes length
+ */
+
+ int stdnwr(const char *c, int l)
+ {
+
+	return(write(1, c, l) - 1);
+ }
+
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
