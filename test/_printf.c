@@ -11,6 +11,11 @@ int _printf(const char *format, ...)
 	/**
 	* grabbed from character after percentage
 	*/
+	// count until reaching '%'
+	// check what character is
+	// character = format
+	// go to correct case
+	// repeats to check for anymore '%'s
 	switch (format[i])
 	{
 		case 'c':
