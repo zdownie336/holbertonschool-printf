@@ -87,6 +87,18 @@ int _printf(const char *format, ...)
 					ind++;
 				}
 				break;
+			case 'b':
+				temp = convert(va_arg(arg, int), buff, 2);
+				if (temp == 0 && temp == NULL)
+				{
+					temp = "(null)";
+				}
+				while (temp[ind] != '\0')
+				{
+					charp += _putchar(temp[ind]);
+					ind++;
+				}
+				break;
 			default:
 				i--;
 				if (str[i + 1] != '\0')
