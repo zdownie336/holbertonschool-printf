@@ -23,17 +23,17 @@ char *convert(int n, char *s, int base)
 {
 	int i;
 	int negative;
-	unsigned int num;
-	char *digits = "0123456789abcdef";
+	int remain;
+	unsigned long int num;
 	i = 0;
 	negative = 0;
 
-	if (n < 0)
+	if (n < 0 && base == 10)
 	{
 		negative = 1;
 		num = -(unsigned int) n;
 	}
-	else
+	else 
 	{
 		num = n;
 	}
@@ -43,14 +43,14 @@ char *convert(int n, char *s, int base)
 		s[i++] = '0';
 	}
 
-	while (num != 0)
-	{
-		s[i] = digits[num % base];
-		i++;
-		num = num / base;
-	}
-
-	if (negative == 1 && base != 2)
+		while (num != 0)
+		{
+			remain = num % base;
+			s[i] = (remain > 9) ? (remain - 10) + 'a' : remain + '0';
+			i++;
+			num = num / base;
+		}
+	if (negative == 1)
 		s[i++] = '-';
 
 	s[i] = '\0';
