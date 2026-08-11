@@ -52,15 +52,19 @@ int _printf(const char *format, ...)
 				{
 					temp = "(null)";
 				}
-					while (temp[ind] != '\0')
-					{
-						charp += _putchar(temp[ind]);
-						ind++;
-					}
-				
+				while (temp[ind] != '\0')
+				{
+					charp += _putchar(temp[ind]);
+					ind++;
+				}
+
 				break;
-			case '%':
-				charp += _putchar(str[i]);
+			default:
+				if (str[i] != '\0')
+				{
+					i--;
+					charp += _putchar(str[i]);
+				}
 				break;
 			}
 		}
