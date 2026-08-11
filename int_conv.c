@@ -31,7 +31,7 @@ char *convert(int n, char *s, int base)
 	if (n < 0)
 	{
 		negative = 1;
-		num = -(unsigned int)n;
+		num = -(unsigned int) n;
 	}
 	else
 	{
@@ -50,7 +50,7 @@ char *convert(int n, char *s, int base)
 		num = num / base;
 	}
 
-	if (negative == 1)
+	if (negative == 1 && base != 2)
 		s[i++] = '-';
 
 	s[i] = '\0';

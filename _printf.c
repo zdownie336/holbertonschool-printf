@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 	unsigned int charp;
 	const char *str;
 	char *temp;
-	char buff[12];
+	char buff[50];
 
 	va_start(arg, format);
 	str = format;
