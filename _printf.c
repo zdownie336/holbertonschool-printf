@@ -30,6 +30,7 @@ int _printf(const char *format, ...)
 	unsigned int charp;
 	const char *str;
 	char *temp;
+	char buff[12];
 
 	va_start(arg, format);
 	str = format;
@@ -61,6 +62,30 @@ int _printf(const char *format, ...)
 				break;
 			case '%':
 				charp += _putchar(str[i]);
+				break;
+			case 'd':
+				temp = convert(va_arg(arg, int), buff, 10);
+				if (temp == 0 && temp == NULL)
+				{
+					temp = "(null)";
+				}
+				while (temp[ind] != '\0')
+				{
+					charp += _putchar(temp[ind]);
+					ind++;
+				}
+				break;
+			case 'i':
+				temp = convert(va_arg(arg, int), buff, 10);
+				if (temp == 0 && temp == NULL)
+				{
+					temp = "(null)";
+				}
+				while (temp[ind] != '\0')
+				{
+					charp += _putchar(temp[ind]);
+					ind++;
+				}
 				break;
 			default:
 				i--;
