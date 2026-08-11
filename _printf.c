@@ -34,10 +34,10 @@ int _printf(const char *format, ...)
 	va_start(arg, format);
 	str = format;
 	i = 0;
-	ind = 0;
 	charp = 0;
 	while (str[i] != '\0')
 	{
+		ind = 0;
 		if (str[i] == '%')
 		{
 			i++;
