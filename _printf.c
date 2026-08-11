@@ -59,13 +59,11 @@ int _printf(const char *format, ...)
 				}
 
 				break;
-			case '%':
-				charp += _putchar(str[i]);
-				break;
 			default:
 				i--;
 				if (str[i + 1] != '\0')
 				{
+					
 					charp += _putchar(str[i]);
 				}
 				break;
@@ -77,5 +75,7 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
+	if (charp == 0)
+		charp = -1;
 	return (charp);
 }
