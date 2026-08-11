@@ -140,6 +140,8 @@ int _printf(const char *format, ...)
 				}
 				while (temp[ind] != '\0')
 				{
+					if (temp[ind] >= 'a' && temp[ind] <= 'f')
+						temp[ind] -= 32;
 					charp += _putchar(temp[ind]);
 					ind++;
 				}
