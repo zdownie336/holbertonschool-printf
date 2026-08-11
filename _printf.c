@@ -63,9 +63,9 @@ int _printf(const char *format, ...)
 				charp += _putchar(str[i]);
 				break;
 			default:
-				if (str[i] != '\0')
+				i--;
+				if (str[i + 1] != '\0')
 				{
-					i--;
 					charp += _putchar(str[i]);
 				}
 				break;
