@@ -60,9 +60,6 @@ int _printf(const char *format, ...)
 				}
 
 				break;
-			case '%':
-				charp += _putchar(str[i]);
-				break;
 			case 'd':
 				temp = convert(va_arg(arg, int), buff, 10);
 				if (temp == 0 && temp == NULL)
@@ -100,7 +97,7 @@ int _printf(const char *format, ...)
 				}
 				break;
 			case 'u':
-				temp = convert(va_arg(arg, int), buff, 10);
+				temp = convertu(va_arg(arg, long int), buff, 10);
 				if (temp == 0 && temp == NULL)
 				{
 					temp = "(null)";
@@ -147,7 +144,9 @@ int _printf(const char *format, ...)
 					ind++;
 				}
 				break;
-
+			case '%':
+				charp += _putchar(str[i]);
+				break;
 			default:
 				i--;
 				if (str[i + 1] != '\0')

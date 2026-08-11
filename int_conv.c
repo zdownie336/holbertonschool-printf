@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <limits.h>
 #include "main.h"
 
 void reverse(char s[], int length)
@@ -52,6 +53,41 @@ char *convert(int n, char *s, int base)
 		}
 	if (negative == 1)
 		s[i++] = '-';
+
+	s[i] = '\0';
+
+	reverse(s, i);
+	return (s);
+}
+
+char *convertu(long int n, char *s, int base)
+{
+	int i;
+	int remain;
+	unsigned long int num;
+	i = 0;
+
+	if (n < 0 && base == 10)
+	{
+		num = UINT_MAX - (n - 1);
+	}
+	else 
+	{
+		num = n;
+	}
+
+	if (num == 0)
+	{
+		s[i++] = '0';
+	}
+
+		while (num != 0)
+		{
+			remain = num % base;
+			s[i] = (remain > 9) ? (remain - 10) + 'a' : remain + '0';
+			i++;
+			num = num / base;
+		}
 
 	s[i] = '\0';
 
