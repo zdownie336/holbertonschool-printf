@@ -32,9 +32,9 @@ char *convert(int n, char *s, int base)
 	if (n < 0 && base == 10)
 	{
 		negative = 1;
-		num = -(unsigned int) n;
+		num = -(unsigned int)n;
 	}
-	else 
+	else
 	{
 		num = n;
 	}
@@ -44,13 +44,13 @@ char *convert(int n, char *s, int base)
 		s[i++] = '0';
 	}
 
-		while (num != 0)
-		{
-			remain = num % base;
-			s[i] = (remain > 9) ? (remain - 10) + 'a' : remain + '0';
-			i++;
-			num = num / base;
-		}
+	while (num != 0)
+	{
+		remain = num % base;
+		s[i] = (remain > 9) ? (remain - 10) + 'a' : remain + '0';
+		i++;
+		num = num / base;
+	}
 	if (negative == 1)
 		s[i++] = '-';
 
@@ -60,34 +60,27 @@ char *convert(int n, char *s, int base)
 	return (s);
 }
 
-char *convertu(long int n, char *s, int base)
+char *convertu(unsigned int n, char *s, int base)
 {
 	int i;
 	int remain;
-	unsigned long int num;
-	i = 0;
+	unsigned int num;
 
-	if (n < 0 && base == 10)
-	{
-		num = UINT_MAX - (n - 1);
-	}
-	else 
-	{
-		num = n;
-	}
+	i = 0;
+	num = n;
 
 	if (num == 0)
 	{
 		s[i++] = '0';
 	}
 
-		while (num != 0)
-		{
-			remain = num % base;
-			s[i] = (remain > 9) ? (remain - 10) + 'a' : remain + '0';
-			i++;
-			num = num / base;
-		}
+	while (num != 0)
+	{
+		remain = num % base;
+		s[i] = (remain > 9) ? (remain - 10) + 'a' : remain + '0';
+		i++;
+		num = num / base;
+	}
 
 	s[i] = '\0';
 
