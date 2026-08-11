@@ -34,10 +34,10 @@ int _printf(const char *format, ...)
 	va_start(arg, format);
 	str = format;
 	i = 0;
-	ind = 0;
 	charp = 0;
 	while (str[i] != '\0')
 	{
+		ind = 0;
 		if (str[i] == '%')
 		{
 			i++;
@@ -48,10 +48,22 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				temp = va_arg(arg, char *);
+				if (temp == 0 && temp == NULL)
+				{
+					temp = "(null)";
+				}
 				while (temp[ind] != '\0')
 				{
 					charp += _putchar(temp[ind]);
 					ind++;
+				}
+
+				break;
+			default:
+				if (str[i] != '\0')
+				{
+					i--;
+					charp += _putchar(str[i]);
 				}
 				break;
 			}
