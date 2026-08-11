@@ -48,11 +48,16 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				temp = va_arg(arg, char *);
-				while (temp[ind] != '\0')
+				if (temp == 0 && temp == NULL)
 				{
-					charp += _putchar(temp[ind]);
-					ind++;
+					temp = "(null)";
 				}
+					while (temp[ind] != '\0')
+					{
+						charp += _putchar(temp[ind]);
+						ind++;
+					}
+				
 				break;
 			}
 		}
