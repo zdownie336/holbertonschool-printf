@@ -59,6 +59,9 @@ int _printf(const char *format, ...)
 				}
 
 				break;
+			case '%':
+				charp += _putchar(str[i]);
+				break;
 			default:
 				if (str[i] != '\0')
 				{
