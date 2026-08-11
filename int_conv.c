@@ -24,7 +24,7 @@ char *convert(int n, char *s, int base)
 	int i;
 	int negative;
 	int remain;
-	unsigned long int num;
+	unsigned int num;
 	i = 0;
 	negative = 0;
 
