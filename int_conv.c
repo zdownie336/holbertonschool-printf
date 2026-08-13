@@ -1,7 +1,13 @@
 #include <unistd.h>
 #include <limits.h>
 #include "main.h"
-
+/**
+* reverse - reverses the string given by convert or convertu
+* @s: the string
+* @length: the length of string.
+*
+* Return: reversed string
+*/
 void reverse(char s[], int length)
 {
 	int start;
@@ -20,12 +26,21 @@ void reverse(char s[], int length)
 		start++;
 	}
 }
+/**
+* convert - converting the integars into ascii for different bases
+* @n: the number given
+* @s: the string
+* @base: type of number, binary, decimal etc.
+*
+* Return: corrected string
+*/
 char *convert(int n, char *s, int base)
 {
 	int i;
 	int negative;
 	int remain;
 	unsigned int num;
+
 	i = 0;
 	negative = 0;
 
@@ -60,6 +75,13 @@ char *convert(int n, char *s, int base)
 	return (s);
 }
 
+/**
+* convertu - converting the unsigned integars into ascii for different bases
+* @n: the number given
+* @s: the string
+* @base: type of number, binary, decimal etc.
+* Return: corrected string
+*/
 char *convertu(unsigned int n, char *s, int base)
 {
 	int i;
