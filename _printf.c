@@ -50,22 +50,17 @@ int _printf(const char *format, ...)
 			case 's':
 				temp = va_arg(arg, char *);
 				if (temp == 0 && temp == NULL)
-				{
 					temp = "(null)";
-				}
 				while (temp[ind] != '\0')
 				{
 					charp += _putchar(temp[ind]);
 					ind++;
 				}
-
 				break;
 			case 'd':
 				temp = convert(va_arg(arg, int), buff, 10);
 				if (temp == 0 && temp == NULL)
-				{
 					temp = "(null)";
-				}
 				while (temp[ind] != '\0')
 				{
 					charp += _putchar(temp[ind]);
@@ -75,9 +70,7 @@ int _printf(const char *format, ...)
 			case 'i':
 				temp = convert(va_arg(arg, int), buff, 10);
 				if (temp == 0 && temp == NULL)
-				{
 					temp = "(null)";
-				}
 				while (temp[ind] != '\0')
 				{
 					charp += _putchar(temp[ind]);
@@ -87,9 +80,7 @@ int _printf(const char *format, ...)
 			case 'b':
 				temp = convert(va_arg(arg, int), buff, 2);
 				if (temp == 0 && temp == NULL)
-				{
 					temp = "(null)";
-				}
 				while (temp[ind] != '\0')
 				{
 					charp += _putchar(temp[ind]);
@@ -99,9 +90,7 @@ int _printf(const char *format, ...)
 			case 'u':
 				temp = convertu(va_arg(arg, long int), buff, 10);
 				if (temp == 0 && temp == NULL)
-				{
 					temp = "(null)";
-				}
 				while (temp[ind] != '\0')
 				{
 					charp += _putchar(temp[ind]);
@@ -111,9 +100,7 @@ int _printf(const char *format, ...)
 			case 'o':
 				temp = convert(va_arg(arg, int), buff, 8);
 				if (temp == 0 && temp == NULL)
-				{
 					temp = "(null)";
-				}
 				while (temp[ind] != '\0')
 				{
 					charp += _putchar(temp[ind]);
@@ -123,9 +110,7 @@ int _printf(const char *format, ...)
 			case 'x':
 				temp = convert(va_arg(arg, int), buff, 16);
 				if (temp == 0 && temp == NULL)
-				{
 					temp = "(null)";
-				}
 				while (temp[ind] != '\0')
 				{
 					charp += _putchar(temp[ind]);
@@ -135,9 +120,7 @@ int _printf(const char *format, ...)
 			case 'X':
 				temp = convert(va_arg(arg, int), buff, 16);
 				if (temp == 0 && temp == NULL)
-				{
 					temp = "(null)";
-				}
 				while (temp[ind] != '\0')
 				{
 					if (temp[ind] >= 'a' && temp[ind] <= 'f')
@@ -152,10 +135,7 @@ int _printf(const char *format, ...)
 			default:
 				i--;
 				if (str[i + 1] != '\0')
-				{
-
 					charp += _putchar(str[i]);
-				}
 				break;
 			}
 		}
