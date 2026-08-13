@@ -14,17 +14,17 @@
 int (*get_func(char *s))(int, int)
 {
 	func_t vars[] = {
-	{'c', }
-	{'s', }
-	{'d', }
-	{'i', }
-	{'b', }
-	{'u', }
-	{'o', }
-	{'x', }
-	{'X', }
-	{'%', }
-	{NULL, NULL}
+	{'c', _putchar}
+	{'s', _putchar}
+	{'d', convert}
+	{'i', convert}
+	{'b', convert}
+	{'u', convertu}
+	{'o', convert}
+	{'x', convert}
+	{'X', convert}
+	{'%', _putchar}
+	{'\0', NULL}
 }
 	i = 0;
 	while (vars[i] != NULL)
