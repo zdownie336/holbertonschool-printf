@@ -7,7 +7,6 @@ typedef struct func
     int (*f)(int a, int b);
 } func_t;
 
-
 int _printf(const char *format, ...);
 int _putchar(char c);
 void reverse(char s[], int length);
