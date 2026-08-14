@@ -149,3 +149,41 @@ int _printf(const char *format, ...)
 		charp = -1;
 	return (charp);
 }
+
+/**
+* get_func - choosing the correct function for printf.
+*
+*
+*
+*
+* Return: function being used
+*/
+
+int func_spec(va_list *arg, unsigned int *ind)
+{
+	func_t prints[] = {
+	{'c', _putchar}
+	{'s', _putchar}
+	{'d', convert(va_arg(arg, int), buff, 10)}
+	{'i', convert(va_arg(arg, int), buff, 10)}
+	{'b', convert(va_arg(arg, int), buff, 2)}
+	{'u', convertu(va_arg(arg, long int), buff, 10)}
+	{'o', convert(va_arg(arg, int), buff, 8)}
+	{'x', convert(va_arg(arg, int), buff, 16)}
+	{'X', convert(va_arg(arg, int), buff, 16)}
+	{'%', _putchar}
+	{'\0', NULL}
+};
+	int i;
+
+	i = 0;
+	while (prints[i] != '\0')
+	{
+		if (prints = prints[i].func)
+		{
+			return (prints[i].func(arg));
+		}
+		i = i + 1;
+	}
+	return ();
+}
