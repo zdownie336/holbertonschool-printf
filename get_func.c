@@ -13,7 +13,7 @@
 
 int (*get_func(char *s))(int, int)
 {
-	func_t vars[] = {
+	func_t prints[] = {
 	{'c', _putchar}
 	{'s', _putchar}
 	{'d', convert(va_arg(arg, int), buff, 10)}
@@ -29,11 +29,11 @@ int (*get_func(char *s))(int, int)
 	int i;
 
 	i = 0;
-	while (vars[i] != NULL)
+	while (prints[i] != '\0')
 	{
-		if (strcmp(s, vars[i].op) == 0)
+		if (prints = prints[i].func)
 		{
-			return (vars[i].f)
+			return (prints[i].func(arg));
 		}
 		i = i + 1;
 	}
