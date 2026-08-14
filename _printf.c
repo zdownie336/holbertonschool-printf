@@ -42,7 +42,17 @@ int _printf(const char *format, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			switch (str[i])
+			temp = func_spec(format[i], &arg, &i);
+			if (temp == 0 && temp == NULL)
+			{
+				temp = "(null)";
+			}
+			while temp[ind] != '\0')
+			{
+				charp += _putchar(temp[ind]);
+				ind ++;
+			}
+		/**	switch (str[i])
 			{
 			case 'c':
 				charp += _putchar(va_arg(arg, int));
@@ -143,7 +153,7 @@ int _printf(const char *format, ...)
 		{
 			charp += _putchar(str[i]);
 		}
-		i++;
+		i++;*/
 	}
 	if (charp == 0)
 		charp = -1;
@@ -170,7 +180,7 @@ int func_spec(va_list *arg, unsigned int *ind)
 	{'u', convertu(va_arg(arg, long int), buff, 10)}
 	{'o', convert(va_arg(arg, int), buff, 8)}
 	{'x', convert(va_arg(arg, int), buff, 16)}
-	{'X', convert(va_arg(arg, int), buff, 16)}
+	{'X', convupp(va_arg(arg, int), buff, 16)}
 	{'%', _putchar}
 	{'\0', NULL}
 };
@@ -179,11 +189,11 @@ int func_spec(va_list *arg, unsigned int *ind)
 	i = 0;
 	while (prints[i] != '\0')
 	{
-		if (prints = prints[i].func)
+		if (prints = prints[ind].func)
 		{
-			return (prints[i].func(arg));
+			return (prints[ind].func(arg));
 		}
 		i = i + 1;
 	}
-	return ();
+	return (NULL);
 }

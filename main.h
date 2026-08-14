@@ -12,6 +12,7 @@ int _putchar(char c);
 void reverse(char s[], int length);
 char *convert(int n, char *s, int base);
 char *convertu(unsigned int n, char *s, int base);
+char *convupp(int n, char *s, int base);
 int func_spec(va_list *arg, unsigned int *ind);
 
 

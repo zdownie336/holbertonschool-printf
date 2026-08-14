@@ -109,3 +109,44 @@ char *convertu(unsigned int n, char *s, int base)
 	reverse(s, i);
 	return (s);
 }
+
+char *convupp(int n, char *s, int base)
+{
+	int i;
+	int negative;
+	int remain;
+	unsigned int num;
+
+	i = 0;
+	negative = 0;
+
+	if (n < 0 && base == 10)
+	{
+		negative = 1;
+		num = -(unsigned int)n;
+	}
+	else
+	{
+		num = n;
+	}
+
+	if (num == 0)
+	{
+		s[i++] = '0';
+	}
+
+	while (num != 0)
+	{
+		remain = num % base;
+		s[i] = (remain > 9) ? (remain - 10) + 'A' : remain + '0';
+		i++;
+		num = num / base;
+	}
+	if (negative == 1)
+		s[i++] = '-';
+
+	s[i] = '\0';
+
+	reverse(s, i);
+	return (s);
+}
