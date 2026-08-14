@@ -18,5 +18,11 @@ char *(*func_spec(char c))(va_list *arg, char *buff);
 
 char *intconv(va_list *arg, char *buff);
 
+char *charconv(va_list *arg, char *buff);
+char *strconv(va_list *arg, char *buff);
+char *moduconv(va_list *arg, char *buff);
+
+int wrt(char *temp);
+
 
 #endif /* _main_H_ */

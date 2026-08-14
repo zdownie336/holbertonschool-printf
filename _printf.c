@@ -15,49 +15,6 @@ int _putchar(char c)
 }
 
 /**
- * get_func - choosing the correct function for printf.
- *
- *
- *
- *
- * Return: function being used
- */
-
-char *(*func_spec(char c))(va_list *arg, char *buff)
-{
-	func_t prints[] = {
-		/*
-		{'c', _putchar},
-		{'s', _putchar},
-		*/
-		{'d', intconv},
-		{'i', intconv},
-		/*
-		{'b', convert(va_arg(*arg, int), 2)},
-		{'u', convertu(va_arg(*arg, long int), 10)},
-		{'o', convert(va_arg(*arg, int), 8)},
-		{'x', convert(va_arg(*arg, int), 16)},
-		{'X', convupp(va_arg(*arg, int), 16)},
-		{'%', _putchar},
-		*/
-		{'\0', NULL}};
-	int i;
-
-	i = 0;
-	while (prints[i].arg != '\0')
-	{
-		if (c == prints[i].arg)
-		{
-			return (prints[i].f);
-		}
-		i += 1;
-	}
-	return (NULL);
-}
-
-/* gcc wrtest.c _printf.c -Wall -Wextra -Werror -pedantic -std=gnu89 -o a */
-
-/**
  * _printf - writes given string and arguments to stdout
  * @format: The strings and variable args to print
  *
@@ -87,7 +44,7 @@ int _printf(const char *format, ...)
 			f = func_spec(str[i]);
 			temp = f(&arg, buff);
 
-			if (temp == 0 && temp == NULL)
+			if (temp == 0 || temp == NULL)
 			{
 				temp = "(null)";
 			}
@@ -206,4 +163,5 @@ int _printf(const char *format, ...)
 		{
 			charp += _putchar(str[i]);
 		}
-		i++;*/
+		i++;
+		*/
