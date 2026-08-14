@@ -17,6 +17,11 @@ char *convupp(int n, char* s, int base);
 char *(*func_spec(char c))(va_list *arg, char *buff);
 
 char *intconv(va_list *arg, char *buff);
+char *binconv(va_list *arg, char *buff);
+char *hexconv(va_list *arg, char *buff);
+char *uphexconv(va_list *arg, char *buff);
+char *unsconv(va_list *arg, char *buff);
+char *octconv(va_list *arg, char *buff);
 
 char *charconv(va_list *arg, char *buff);
 char *strconv(va_list *arg, char *buff);
