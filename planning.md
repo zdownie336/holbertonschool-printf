@@ -15,14 +15,14 @@ free
 variadic commands (list, start, end, arg)
 
 ## Task 1 requirements:
-Prototype: int _printf(const char *format, ...) x
+Prototype: int _printf(const char *format, ...)
 need to use variadic list for inputs
-Returns: number of characters printed (excluding null byte for end of string) x
-output must be stdout, standard output system x
+Returns: number of characters printed (excluding null byte for end of string)
+output must be stdout, standard output system
 
 string `format` composed of zero or more directives, must handle:
-c (char) 
-s (strings) x
+c (char)
+s (strings)
 %
 
 don't have to reproduce buffer handling,
@@ -51,8 +51,3 @@ don't have to handle length modifiers
 need to do "/" before printing special characters
 example:
 printing a backslash, have to do "//"
-printing out string before and after the '%'
-
-hex = 16
-oct = 8
-dec = 10
