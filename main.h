@@ -3,8 +3,8 @@
 
 typedef struct func
 {
-    char *op;
-    int (*f)(int a, int b);
+    char *type;
+    int (*func)(va_list *);
 } func_t;
 
 int _printf(const char *format, ...);
@@ -12,7 +12,7 @@ int _putchar(char c);
 void reverse(char s[], int length);
 char *convert(int n, char *s, int base);
 char *convertu(unsigned int n, char *s, int base);
-int (*get_func(char *s))(int, int);
+int func_spec(va_list *arg, unsigned int *ind);
 
 
 #endif /* _main_H_ */
