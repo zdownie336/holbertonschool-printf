@@ -34,12 +34,13 @@ void reverse(char s[], int length)
 *
 * Return: corrected string
 */
-char *convert(int n, char *s, int base)
+char *convert(int n, char* s, int base)
 {
 	int i;
 	int negative;
 	int remain;
 	unsigned int num;
+	
 
 	i = 0;
 	negative = 0;
@@ -82,7 +83,7 @@ char *convert(int n, char *s, int base)
 * @base: type of number, binary, decimal etc.
 * Return: corrected string
 */
-char *convertu(unsigned int n, char *s, int base)
+char *convertu(unsigned int n, char* s, int base)
 {
 	int i;
 	int remain;
@@ -110,7 +111,7 @@ char *convertu(unsigned int n, char *s, int base)
 	return (s);
 }
 
-char *convupp(int n, char *s, int base)
+char *convupp(int n, char* s, int base)
 {
 	int i;
 	int negative;
