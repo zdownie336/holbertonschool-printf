@@ -30,7 +30,6 @@ int _printf(const char *format, ...)
 	unsigned int charp;
 	const char *str;
 	char *temp;
-	char buff[64];
 
 	va_start(arg, format);
 	str = format;
@@ -42,12 +41,12 @@ int _printf(const char *format, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			temp = func_spec(format[i], &arg, &i);
+			charp = func_spec(format[i], &arg, &i);
 			if (temp == 0 && temp == NULL)
 			{
 				temp = "(null)";
 			}
-			while temp[ind] != '\0')
+			while (temp[ind] != '\0')
 			{
 				charp += _putchar(temp[ind]);
 				ind ++;
@@ -169,31 +168,35 @@ int _printf(const char *format, ...)
 * Return: function being used
 */
 
-int func_spec(va_list *arg, unsigned int *ind)
+int func_spec(char specify, va_list *arg, int *i)
 {
 	func_t prints[] = {
-	{'c', _putchar}
-	{'s', _putchar}
-	{'d', convert(va_arg(arg, int), buff, 10)}
-	{'i', convert(va_arg(arg, int), buff, 10)}
-	{'b', convert(va_arg(arg, int), buff, 2)}
-	{'u', convertu(va_arg(arg, long int), buff, 10)}
-	{'o', convert(va_arg(arg, int), buff, 8)}
-	{'x', convert(va_arg(arg, int), buff, 16)}
-	{'X', convupp(va_arg(arg, int), buff, 16)}
-	{'%', _putchar}
+	{'c', _putchar},
+	{'s', _putchar},
+	{'d', convert(va_arg(arg, int), buff, 10)},
+	{'i', convert(va_arg(arg, int), buff, 10)},
+	{'b', convert(va_arg(arg, int), buff, 2)},
+	{'u', convertu(va_arg(arg, long int), buff, 10)},
+	{'o', convert(va_arg(arg, int), buff, 8)},
+	{'x', convert(va_arg(arg, int), buff, 16)},
+	{'X', convupp(va_arg(arg, int), buff, 16)},
+	{'%', _putchar},
 	{'\0', NULL}
-};
-	int i;
+	};
+	int j;
 
-	i = 0;
-	while (prints[i] != '\0')
+	j = 0;
+		if (specify == '\0')
+			return (NULL);
+
+	while (prints[i] != NULL)
 	{
-		if (prints = prints[ind].func)
+		if (specify = prints[ind].type)
 		{
+			*i = *i + 1;
 			return (prints[ind].func(arg));
 		}
-		i = i + 1;
+		j = j + 1;
 	}
-	return (NULL);
+	return (0);
 }

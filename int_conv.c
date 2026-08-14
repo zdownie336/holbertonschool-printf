@@ -40,6 +40,8 @@ char *convert(int n, char *s, int base)
 	int negative;
 	int remain;
 	unsigned int num;
+	char buff[64];
+
 
 	i = 0;
 	negative = 0;
@@ -87,6 +89,7 @@ char *convertu(unsigned int n, char *s, int base)
 	int i;
 	int remain;
 	unsigned int num;
+	char buff[64];
 
 	i = 0;
 	num = n;
@@ -116,6 +119,7 @@ char *convupp(int n, char *s, int base)
 	int negative;
 	int remain;
 	unsigned int num;
+	char buff[64];
 
 	i = 0;
 	negative = 0;
