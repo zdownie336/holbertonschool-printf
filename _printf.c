@@ -14,8 +14,6 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 
-/* gcc wrtest.c _printf.c -Wall -Wextra -Werror -pedantic -std=gnu89 -o a */
-
 /**
  * _printf - writes given string and arguments to stdout
  * @format: The strings and variable args to print
@@ -29,8 +27,9 @@ int _printf(const char *format, ...)
 	unsigned int ind;
 	unsigned int charp;
 	const char *str;
-	char *temp;
+	char *(*f)(va_list *, char *buff);
 	char buff[64];
+	char *temp;
 
 	va_start(arg, format);
 	str = format;
@@ -42,17 +41,28 @@ int _printf(const char *format, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			temp = func_spec(format[i], &arg, &i);
-			if (temp == 0 && temp == NULL)
+			f = func_spec(str[i]);
+			temp = f(&arg, buff);
+
+			if (temp == 0 || temp == NULL)
 			{
 				temp = "(null)";
 			}
-			while temp[ind] != '\0')
-			{
-				charp += _putchar(temp[ind]);
-				ind ++;
-			}
-		/**	switch (str[i])
+		}
+	}
+	
+	while (temp[ind] != '\0')
+	{
+		charp += _putchar(temp[ind]);
+		ind++;
+	}
+
+	if (charp == 0)
+		charp = -1;
+	return (charp);
+}
+
+/**	switch (str[i])
 			{
 			case 'c':
 				charp += _putchar(va_arg(arg, int));
@@ -153,47 +163,5 @@ int _printf(const char *format, ...)
 		{
 			charp += _putchar(str[i]);
 		}
-		i++;*/
-	}
-	if (charp == 0)
-		charp = -1;
-	return (charp);
-}
-
-/**
-* get_func - choosing the correct function for printf.
-*
-*
-*
-*
-* Return: function being used
-*/
-
-int func_spec(va_list *arg, unsigned int *ind)
-{
-	func_t prints[] = {
-	{'c', _putchar}
-	{'s', _putchar}
-	{'d', convert(va_arg(arg, int), buff, 10)}
-	{'i', convert(va_arg(arg, int), buff, 10)}
-	{'b', convert(va_arg(arg, int), buff, 2)}
-	{'u', convertu(va_arg(arg, long int), buff, 10)}
-	{'o', convert(va_arg(arg, int), buff, 8)}
-	{'x', convert(va_arg(arg, int), buff, 16)}
-	{'X', convupp(va_arg(arg, int), buff, 16)}
-	{'%', _putchar}
-	{'\0', NULL}
-};
-	int i;
-
-	i = 0;
-	while (prints[i] != '\0')
-	{
-		if (prints = prints[ind].func)
-		{
-			return (prints[ind].func(arg));
-		}
-		i = i + 1;
-	}
-	return (NULL);
-}
+		i++;
+		*/
