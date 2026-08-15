@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-printf("test %i %c %s yay\n", 100, 'a', "string");
+_printf("test %i %c %s yay\n", 100, 'a', "string");
 
 return (0);
 }
