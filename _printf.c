@@ -15,6 +15,28 @@ int _putchar(char c)
 }
 
 /**
+ * wrt - writes a string to stdout
+ * @temp: The string to print
+ *
+ * Return: amount of chars printed.
+ */
+
+int wrt(char *temp)
+{
+	unsigned int ind;
+	int charp;
+
+	ind = 0;
+	charp = 0;
+	while (temp[ind] != '\0')
+	{
+		charp += _putchar(temp[ind]);
+		ind++;
+	}
+	return (charp);
+}
+
+/**
  * _printf - writes given string and arguments to stdout
  * @format: The strings and variable args to print
  *
@@ -24,7 +46,6 @@ int _printf(const char *format, ...)
 {
 	va_list arg;
 	unsigned int i;
-	unsigned int ind;
 	unsigned int charp;
 	const char *str;
 	char *(*f)(va_list *, char *buff);
@@ -40,19 +61,20 @@ int _printf(const char *format, ...)
 		if (str[i] == '%')
 		{
 			i++;
+			if (str[i] == '\0')
+				break;
 			f = func_spec(str[i]);
 			if (f == NULL)
-				temp = "(null)";
-			else
-				temp = f(&arg, buff);
-			if (temp == NULL)
-				temp = "(null)";
-
-			ind = 0;
-			while (temp[ind] != '\0')
 			{
-				charp += _putchar(temp[ind]);
-				ind++;
+				charp += _putchar(str[i - 1]);
+				charp += _putchar(str[i]);
+			}
+			else
+			{
+				temp = f(&arg, buff);
+				if (temp == NULL)
+					temp = "(null)";
+				charp += wrt(temp);
 			}
 		}
 		else
@@ -62,112 +84,7 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(arg);
-
 	if (charp == 0)
 		charp = -1;
 	return (charp);
 }
-
-/**	switch (str[i])
-			{
-			case 'c':
-				charp += _putchar(va_arg(arg, int));
-				break;
-			case 's':
-				temp = va_arg(arg, char *);
-				if (temp == 0 && temp == NULL)
-					temp = "(null)";
-				while (temp[ind] != '\0')
-				{
-					charp += _putchar(temp[ind]);
-					ind++;
-				}
-				break;
-			case 'd':
-				temp = convert(va_arg(arg, int), buff, 10);
-				if (temp == 0 && temp == NULL)
-					temp = "(null)";
-				while (temp[ind] != '\0')
-				{
-					charp += _putchar(temp[ind]);
-					ind++;
-				}
-				break;
-			case 'i':
-				temp = convert(va_arg(arg, int), buff, 10);
-				if (temp == 0 && temp == NULL)
-					temp = "(null)";
-				while (temp[ind] != '\0')
-				{
-					charp += _putchar(temp[ind]);
-					ind++;
-				}
-				break;
-			case 'b':
-				temp = convert(va_arg(arg, int), buff, 2);
-				if (temp == 0 && temp == NULL)
-					temp = "(null)";
-				while (temp[ind] != '\0')
-				{
-					charp += _putchar(temp[ind]);
-					ind++;
-				}
-				break;
-			case 'u':
-				temp = convertu(va_arg(arg, long int), buff, 10);
-				if (temp == 0 && temp == NULL)
-					temp = "(null)";
-				while (temp[ind] != '\0')
-				{
-					charp += _putchar(temp[ind]);
-					ind++;
-				}
-				break;
-			case 'o':
-				temp = convert(va_arg(arg, int), buff, 8);
-				if (temp == 0 && temp == NULL)
-					temp = "(null)";
-				while (temp[ind] != '\0')
-				{
-					charp += _putchar(temp[ind]);
-					ind++;
-				}
-				break;
-			case 'x':
-				temp = convert(va_arg(arg, int), buff, 16);
-				if (temp == 0 && temp == NULL)
-					temp = "(null)";
-				while (temp[ind] != '\0')
-				{
-					charp += _putchar(temp[ind]);
-					ind++;
-				}
-				break;
-			case 'X':
-				temp = convert(va_arg(arg, int), buff, 16);
-				if (temp == 0 && temp == NULL)
-					temp = "(null)";
-				while (temp[ind] != '\0')
-				{
-					if (temp[ind] >= 'a' && temp[ind] <= 'f')
-						temp[ind] -= 32;
-					charp += _putchar(temp[ind]);
-					ind++;
-				}
-				break;
-			case '%':
-				charp += _putchar(str[i]);
-				break;
-			default:
-				i--;
-				if (str[i + 1] != '\0')
-					charp += _putchar(str[i]);
-				break;
-			}
-		}
-		else
-		{
-			charp += _putchar(str[i]);
-		}
-		i++;
-		*/
