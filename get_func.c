@@ -18,13 +18,11 @@ char *(*func_spec(char c))(va_list *arg, char *buff)
 		{'%', moduconv},
 		{'d', intconv},
 		{'i', intconv},
-		/*
-		{'b', convert(va_arg(*arg, int), 2)},
-		{'u', convertu(va_arg(*arg, long int), 10)},
-		{'o', convert(va_arg(*arg, int), 8)},
-		{'x', convert(va_arg(*arg, int), 16)},
-		{'X', convupp(va_arg(*arg, int), 16)},
-		*/
+		{'b', binconv},
+		{'u', unsconv},
+		{'o', octconv},
+		{'x', hexconv},
+		{'X', uphexconv},
 		{'\0', NULL}};
 	int i;
 

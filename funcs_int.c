@@ -53,7 +53,7 @@ char *hexconv(va_list *arg, char *buff)
 
 char *uphexconv(va_list *arg, char *buff)
 {
-	return (convertupp(va_arg(*arg, int), buff, 16));
+	return (convupp(va_arg(*arg, int), buff, 16));
 }
 /**
 * unsconv - the conversion for unsigned integars
