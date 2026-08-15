@@ -3,39 +3,39 @@
 #include <stddef.h>
 
 /**
-* get_func - choosing the correct function for printf.
-*
-*
-*
-*
-* Return: function being used
-*/
+ * func_spec - choosing the correct function for printf.
+ * @c: char to compare
+ *
+ * 
+ * Return: pointer to function to use
+ */
 
-int (*get_func(char *s))(int, int)
+char *(*func_spec(char c))(va_list *arg, char *buff)
 {
 	func_t prints[] = {
-	{'c', _putchar}
-	{'s', _putchar}
-	{'d', convert(va_arg(arg, int), buff, 10)}
-	{'i', convert(va_arg(arg, int), buff, 10)}
-	{'b', convert(va_arg(arg, int), buff, 2)}
-	{'u', convertu(va_arg(arg, long int), buff, 10)}
-	{'o', convert(va_arg(arg, int), buff, 8)}
-	{'x', convert(va_arg(arg, int), buff, 16)}
-	{'X', convert(va_arg(arg, int), buff, 16)}
-	{'%', _putchar}
-	{'\0', NULL}
-};
+		{'c', charconv},
+		{'s', strconv},
+		{'%', moduconv},
+		{'d', intconv},
+		{'i', intconv},
+		/*
+		{'b', convert(va_arg(*arg, int), 2)},
+		{'u', convertu(va_arg(*arg, long int), 10)},
+		{'o', convert(va_arg(*arg, int), 8)},
+		{'x', convert(va_arg(*arg, int), 16)},
+		{'X', convupp(va_arg(*arg, int), 16)},
+		*/
+		{'\0', NULL}};
 	int i;
 
 	i = 0;
-	while (prints[i] != '\0')
+	while (prints[i].arg != '\0')
 	{
-		if (prints = prints[i].func)
+		if (c == prints[i].arg)
 		{
-			return (prints[i].func(arg));
+			return (prints[i].f);
 		}
-		i = i + 1;
+		i += 1;
 	}
 	return (NULL);
 }
