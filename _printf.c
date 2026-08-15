@@ -36,39 +36,32 @@ int _printf(const char *format, ...)
 	i = 0;
 	charp = 0;
 	while (str[i] != '\0')
-{
-    if (str[i] == '%')
-    {
-        i++;
-        f = func_spec(str[i]);
-        if (f == NULL)
-            temp = "(null)"; /* or handle unknown specifier */
-        else
-            temp = f(&arg, buff);
-        if (temp == NULL)
-            temp = "(null)";
-
-        ind = 0;
-        while (temp[ind] != '\0')
-        {
-            charp += _putchar(temp[ind]);
-            ind++;
-        }
-        i++;
-    }
-    else
-    {
-        charp += _putchar(str[i]);
-        i++;
-    }
-}
-va_end(arg);
-	
-	while (temp[ind] != '\0')
 	{
-		charp += _putchar(temp[ind]);
-		ind++;
+		if (str[i] == '%')
+		{
+			i++;
+			f = func_spec(str[i]);
+			if (f == NULL)
+				temp = "(null)";
+			else
+				temp = f(&arg, buff);
+			if (temp == NULL)
+				temp = "(null)";
+
+			ind = 0;
+			while (temp[ind] != '\0')
+			{
+				charp += _putchar(temp[ind]);
+				ind++;
+			}
+		}
+		else
+		{
+			charp += _putchar(str[i]);
+		}
+		i++;
 	}
+	va_end(arg);
 
 	if (charp == 0)
 		charp = -1;

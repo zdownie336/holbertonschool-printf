@@ -14,6 +14,7 @@
 char *charconv(va_list *arg, char *buff)
 {
 	buff[0] = va_arg(*arg, int);
+	buff[1] = '\0';
 	return (buff);
 }
 
