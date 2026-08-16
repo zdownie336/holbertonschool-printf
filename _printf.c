@@ -74,7 +74,10 @@ int _printf(const char *format, ...)
 				temp = f(&arg, buff);
 				if (temp == NULL)
 					temp = "(null)";
-				charp += wrt(temp);
+				if (str[i] == 'c')
+					charp += _putchar(temp[0]);
+				else
+					charp += wrt(temp);
 			}
 		}
 		else
@@ -84,7 +87,5 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(arg);
-	if (charp == 0)
-		charp = -1;
 	return (charp);
 }
