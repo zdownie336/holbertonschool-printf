@@ -28,6 +28,10 @@ int wrt(char *temp)
 
 	ind = 0;
 	charp = 0;
+
+	if (temp == NULL)
+		temp = "(null)";
+
 	while (temp[ind] != '\0')
 	{
 		charp += _putchar(temp[ind]);
@@ -62,7 +66,7 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if (str[i] == '\0')
-				return(-1);
+				return (-1);
 			f = func_spec(str[i]);
 			if (f == NULL)
 			{
@@ -72,8 +76,6 @@ int _printf(const char *format, ...)
 			else
 			{
 				temp = f(&arg, buff);
-				if (temp == NULL)
-					temp = "(null)";
 				if (str[i] == 'c')
 					charp += _putchar(temp[0]);
 				else
@@ -81,9 +83,7 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
-		{
 			charp += _putchar(str[i]);
-		}
 		i++;
 	}
 	va_end(arg);
