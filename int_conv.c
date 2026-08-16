@@ -2,12 +2,12 @@
 #include <limits.h>
 #include "main.h"
 /**
-* reverse - reverses the string given by convert or convertu
-* @s: the string
-* @length: the length of string.
-*
-* Return: reversed string
-*/
+ * reverse - reverses the string given by convert or convertu
+ * @s: the string
+ * @length: the length of string.
+ *
+ * Return: reversed string
+ */
 void reverse(char s[], int length)
 {
 	int start;
@@ -27,20 +27,19 @@ void reverse(char s[], int length)
 	}
 }
 /**
-* convert - converting the integars into ascii for different bases
-* @n: the number given
-* @s: the string
-* @base: type of number, binary, decimal etc.
-*
-* Return: corrected string
-*/
-char *convert(int n, char* s, int base)
+ * convert - converting the integars into ascii for different bases
+ * @n: the number given
+ * @s: the string
+ * @base: type of number, binary, decimal etc.
+ *
+ * Return: corrected string
+ */
+char *convert(int n, char *s, int base)
 {
 	int i;
 	int negative;
 	int remain;
 	unsigned int num;
-	
 
 	i = 0;
 	negative = 0;
@@ -77,13 +76,13 @@ char *convert(int n, char* s, int base)
 }
 
 /**
-* convertu - converting the unsigned integars into ascii for different bases
-* @n: the number given
-* @s: the string
-* @base: type of number, binary, decimal etc.
-* Return: corrected string
-*/
-char *convertu(unsigned int n, char* s, int base)
+ * convertu - converting the unsigned integars into ascii for different bases
+ * @n: the number given
+ * @s: the string
+ * @base: type of number, binary, decimal etc.
+ * Return: corrected string
+ */
+char *convertu(unsigned int n, char *s, int base)
 {
 	int i;
 	int remain;
@@ -111,7 +110,15 @@ char *convertu(unsigned int n, char* s, int base)
 	return (s);
 }
 
-char *convupp(int n, char* s, int base)
+/**
+ * convupp - converting the integars into ascii for upper hex
+ * @n: the number given
+ * @s: the string
+ * @base: type of number, binary, decimal etc.
+ *
+ * Return: corrected string
+ */
+char *convupp(int n, char *s, int base)
 {
 	int i;
 	int negative;

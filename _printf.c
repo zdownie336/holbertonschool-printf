@@ -48,7 +48,7 @@ int _printf(const char *format, ...)
 	unsigned int i;
 	unsigned int charp;
 	const char *str;
-	char *(*f)(va_list *, char *buff);
+	conv_t f;
 	char buff[64];
 	char *temp;
 
@@ -74,7 +74,10 @@ int _printf(const char *format, ...)
 				temp = f(&arg, buff);
 				if (temp == NULL)
 					temp = "(null)";
-				charp += wrt(temp);
+				if (str[i] == 'c')
+					charp += _putchar(temp[0]);
+				else
+					charp += wrt(temp);
 			}
 		}
 		else
@@ -84,7 +87,5 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(arg);
-	if (charp == 0)
-		charp = -1;
 	return (charp);
 }
