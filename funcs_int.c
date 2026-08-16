@@ -4,19 +4,6 @@
 #include <stdarg.h>
 
 /**
-* intconv - the conversion for integars
-* @arg: the arguments being passed
-* @buff: the buffer to write in
-*
-*
-* Return: converted integars
-*/
-
-char *intconv(va_list *arg, char *buff)
-{
-	return (convert(va_arg(*arg, int), buff, 10));
-}
-/**
 * binconv - the conversion for integars to binary
 * @arg: the arguments being passed
 * @buff: the buffer to write in,

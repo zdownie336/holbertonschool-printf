@@ -48,7 +48,7 @@ int _printf(const char *format, ...)
 	unsigned int i;
 	unsigned int charp;
 	const char *str;
-	char *(*f)(va_list *, char *buff);
+	conv_t f;
 	char buff[64];
 	char *temp;
 

@@ -6,11 +6,11 @@
  * func_spec - choosing the correct function for printf.
  * @c: char to compare
  *
- * 
+ *
  * Return: pointer to function to use
  */
 
-char *(*func_spec(char c))(va_list *arg, char *buff)
+conv_t func_spec(char c)
 {
 	func_t prints[] = {
 		{'c', charconv},

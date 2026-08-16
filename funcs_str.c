@@ -44,4 +44,17 @@ char *moduconv(va_list *arg, char *buff)
 	buff[0] = '%';
 	return (buff);
 }
-	
+
+/**
+* intconv - the conversion for integars
+* @arg: the arguments being passed
+* @buff: the buffer to write in
+*
+*
+* Return: converted integars
+*/
+
+char *intconv(va_list *arg, char *buff)
+{
+	return (convert(va_arg(*arg, int), buff, 10));
+}
