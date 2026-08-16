@@ -62,7 +62,7 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if (str[i] == '\0')
-				break;
+				return(-1);
 			f = func_spec(str[i]);
 			if (f == NULL)
 			{
